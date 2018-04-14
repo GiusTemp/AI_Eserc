@@ -10,6 +10,14 @@ public class State implements GoalTest{
 	private int c = 3;
 	private int b = 1;
 	
+	public State(int totCan, int totMiss, int m, int c, int b) {
+		super();
+		this.totCan = totCan;
+		this.totMiss = totMiss;
+		this.m = m;
+		this.c = c;
+		this.b = b;
+	}
 	public int getTotCan() {
 		return totCan;
 	}
