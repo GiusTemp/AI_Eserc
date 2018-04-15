@@ -6,9 +6,9 @@ public class State implements GoalTest{
 	
 	private int totCan = 3;
 	private int totMiss = 3;
-	private int m = 3;
-	private int c = 3;
-	private int b = 1;
+	private int m;
+	private int c;
+	private int b;
 	
 	public State(int totCan, int totMiss, int m, int c, int b) {
 		super();
@@ -52,7 +52,7 @@ public class State implements GoalTest{
 	public boolean isGoalState(Object arg0) {
 		State current = (State) arg0;
 
-		return current.getM() == 0 && current.getC() == 0 && current.b == 0;
+		return (current.getM() == 0 && current.getC() == 0 && current.b == 0);
 	}
 	
 	

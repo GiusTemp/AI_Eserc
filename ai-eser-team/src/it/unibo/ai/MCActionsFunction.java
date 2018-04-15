@@ -42,7 +42,7 @@ public class MCActionsFunction implements ActionsFunction {
 			
 		} 
 		else{ 						//DA ARRIVO A PARTENZA
-			if( canOnSide2>=1 && missOnSide2>=canOnSide2+1 && missOnSide1 >= canOnSide1-1 ) 
+			if( canOnSide2>=1 && missOnSide2>=canOnSide2-1 && missOnSide1 >= canOnSide1+1 ) 
 				return true;
 			else
 				return false;
@@ -84,7 +84,10 @@ public class MCActionsFunction implements ActionsFunction {
 			
 		} 
 		else{ 						//DA ARRIVO A PARTENZA
-				return false;	//NON FAI UN MOVE M-C 
+			if( canOnSide2>=2 && missOnSide2>=canOnSide2-2 && missOnSide1 >= canOnSide1+2 ) 
+				return true;
+			else
+				return false;
 		}
 	}
 
@@ -102,7 +105,10 @@ public class MCActionsFunction implements ActionsFunction {
 			
 		} 
 		else{ 						//DA ARRIVO A PARTENZA
-				return false;	//NON FAI UN MOVE M-C 
+			if( missOnSide2 >= 2 && missOnSide2-2>=canOnSide2 && missOnSide1+2 >= canOnSide1 ) 
+				return true;
+			else
+				return false;
 		}
 	}
 	
@@ -113,17 +119,19 @@ public class MCActionsFunction implements ActionsFunction {
 		int canOnSide2 = current.getTotCan()-canOnSide1;
 		
 		if(current.boatIsPresent()) { // DA PARTENZA AD ARRIVO
-			if( canOnSide1 >= 1 && canOnSide1 >= 1 && missOnSide1-1>=canOnSide1-1 
+			if( canOnSide1 >= 1 && missOnSide1 >= 1 && missOnSide1-1>=canOnSide1-1 
 					&& missOnSide2+1 >= canOnSide2+1 ) 
 				return true;
 			else
 				return false;
-			
 		} 
 		else{ 						//DA ARRIVO A PARTENZA
-				return false;	//NON FAI UN MOVE M-C 
+			if( canOnSide2 >= 1 && missOnSide2 >= 1 && missOnSide2-1>=canOnSide2-1 
+					&& missOnSide1+1 >= canOnSide1+1 ) 
+				return true;
+			else
+				return false;
 		}
-		
 	}
 
 	
