@@ -28,7 +28,7 @@ public class Starter {
 		 * */
 //		AStarSearch search = new AStarSearch(new TreeSearch(),initState);
 //		GreedyBestFirstSearch search = new GreedyBestFirstSearch(new TreeSearch(),initState);
-		//a
+		//ab
 		try {
 			SearchAgent agent = new SearchAgent(problem, search);
 			printActions(agent.getActions());
