@@ -1,4 +1,4 @@
-package it.unibo.ai;
+package it.unibo.ai.mc;
 
 import aima.core.search.framework.problem.GoalTest;
 
@@ -18,41 +18,35 @@ public class State implements GoalTest{
 		this.c = c;
 		this.b = b;
 	}
-	public int getTotCan() {
+	
+	public int getTotCannibals() {
 		return totCan;
 	}
-	public void setTotCan(int totCan) {
-		this.totCan = totCan;
-	}
-	public int getTotMiss() {
+	
+	public int getTotMissionars() {
 		return totMiss;
 	}
-	public void setTotMiss(int totMiss) {
-		this.totMiss = totMiss;
-	}
-	public int getM() {
+	
+	public int getMissionars() {
 		return m;
 	}
-	public void setM(int m) {
-		this.m = m;
-	}
-	public int getC() {
+	
+	public int getCannibals() {
 		return c;
 	}
-	public void setC(int c) {
-		this.c = c;
-	}
-	public boolean boatIsPresent() {
+	
+	public boolean isPosBoat() {
 		return b==1;
 	}
 	public void setB(int b) {
 		this.b = b;
 	}
+	
 	@Override
 	public boolean isGoalState(Object arg0) {
 		State current = (State) arg0;
 
-		return (current.getM() == 0 && current.getC() == 0 && current.b == 0);
+		return (current.getMissionars() == 0 && current.getCannibals() == 0 && current.b == 0);
 	}
 	
 	

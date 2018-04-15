@@ -1,4 +1,4 @@
-package it.unibo.ai;
+package it.unibo.ai.mc;
 
 import aima.core.agent.Action;
 import aima.core.agent.impl.DynamicAction;
@@ -30,45 +30,45 @@ public class MCResultFunction implements ResultFunction {
 	}
 
 	private State moveMC(Action action, State state){
-		if(state.boatIsPresent()) {
+		if(state.isPosBoat()) {
 			System.out.println("MCResultFunction = MC from SIDE1 to SIDE2");
-			return new State(3, 3, state.getM()-1, state.getC()-1, 0);
+			return new State(3, 3, state.getMissionars()-1, state.getCannibals()-1, 0);
 		}
 		else {
 			System.out.println("MCResultFunction = MC from SIDE2 to SIDE1");
-			return new State(3, 3, state.getM()+1, state.getC()+1, 1);	
+			return new State(3, 3, state.getMissionars()+1, state.getCannibals()+1, 1);	
 		}
 	}
 	
 	private State moveMM(Action action, State state){
 		System.out.println("MCResultFunction = MM");
-		if(state.boatIsPresent()) 
-			return new State(3, 3, state.getM()-2, state.getC(), 0);
+		if(state.isPosBoat()) 
+			return new State(3, 3, state.getMissionars()-2, state.getCannibals(), 0);
 		else 
-			return new State(3, 3, state.getM()+2, state.getC(), 1);	
+			return new State(3, 3, state.getMissionars()+2, state.getCannibals(), 1);	
 	}
 	
 	private State moveCC(Action action, State state){
 		System.out.println("MCResultFunction = CC");
-		if(state.boatIsPresent()) 
-			return new State(3, 3, state.getM(), state.getC()-2, 0);
+		if(state.isPosBoat()) 
+			return new State(3, 3, state.getMissionars(), state.getCannibals()-2, 0);
 		else 
-			return new State(3, 3, state.getM(), state.getC()+2, 1);	
+			return new State(3, 3, state.getMissionars(), state.getCannibals()+2, 1);	
 	}
 	
 	private State moveM(Action action, State state){
 		System.out.println("MCResultFunction = M");
-		if(state.boatIsPresent()) 
-			return new State(3, 3, state.getM()-1, state.getC(), 0);
+		if(state.isPosBoat()) 
+			return new State(3, 3, state.getMissionars()-1, state.getCannibals(), 0);
 		else 
-			return new State(3, 3, state.getM()+1, state.getC(), 1);	
+			return new State(3, 3, state.getMissionars()+1, state.getCannibals(), 1);	
 	}
 	
 	private State moveC(Action action, State state){
 		System.out.println("MCResultFunction = C");
-		if(state.boatIsPresent()) 
-			return new State(3, 3, state.getM(), state.getC()-1, 0);
+		if(state.isPosBoat()) 
+			return new State(3, 3, state.getMissionars(), state.getCannibals()-1, 0);
 		else 
-			return new State(3, 3, state.getM(), state.getC()+1, 1);	
+			return new State(3, 3, state.getMissionars(), state.getCannibals()+1, 1);	
 	}
 }
